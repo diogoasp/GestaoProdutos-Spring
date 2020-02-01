@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org" 
       xmlns="http://www.w3.org/1999/xhtml"
       xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorator="MenuSuperior">
+      layout:decorator="PainelDeControle">
     <head>
         <title>Cadastrar Usuário</title>
         <meta charset="UTF-8" />
@@ -29,11 +29,11 @@
                             <input class="form-control" type="text" th:field="*{login}"/>
                             <br/>
                             <label for="#ids.next('senha')" th:text="'Senha :'"/>
-                            <input class="form-control" type="text" th:field="*{senha}"/>
+                            <input class="form-control" type="password" th:field="*{senha}"/>
                             <br/>
-                            <label for="#ids.next('permisoes')" th:text="'Permissões :'"/>
-                            <input class="form-control" type="checkbox" th:field="*{permissoes[0].nome}" value="COMUM"/> Usuário
-                            <input class="form-control" type="checkbox" th:field="*{permissoes[1].nome}" value="ADMIN"/> Administrador
+                            <label for="#ids.next('permissoes')" th:text="'Permissões :'"/>
+                            <input class="form-control" type="checkbox" name="role" value="ADMIN"/> Administrador
+                            <input class="form-control" type="hidden" name="role" value=""/>
                             <br/>
                             <input class="btn btn-primary" type="submit" value="salvar"/>
                         </div>

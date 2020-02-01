@@ -18,6 +18,8 @@ public class WebSecurity extends WebSecurityConfigurerAdapter{
             .antMatchers("/produtos").hasAnyRole("ADMIN", "COMUM")
             .antMatchers("/produtos/**").hasRole("ADMIN")
             .antMatchers("/files/**").hasAnyRole("ADMIN", "COMUM")
+            .antMatchers("/usuarios/**").hasRole("ADMIN")
+            .antMatchers("/usuarios").hasRole("ADMIN")
             .antMatchers("/login").permitAll()
             .antMatchers("/logout").permitAll()
                 .antMatchers("/").permitAll()

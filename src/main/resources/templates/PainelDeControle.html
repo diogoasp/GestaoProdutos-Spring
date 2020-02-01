@@ -28,8 +28,9 @@
                         <a class="navbar-brand" href="/">GesPro</a>
                     </div>
                     <ul class="nav navbar-nav" style="width: 75%">
-                        <li><a th:href='@{/produtos}'>Lista de produtos</a> </li>
+                        <li><a th:href='@{/produtos}'>Lista de Produtos</a> </li>
                         <li sec:authorize="hasRole('ROLE_ADMIN')"><a th:href='@{/produtos/cadastrar}'>Cadastrar Produtos</a> </li>
+                        <li sec:authorize="hasRole('ROLE_ADMIN')"><a th:href='@{/usuarios}'>Lista de Usuários</a> </li>
                         <li sec:authorize="hasRole('ROLE_ADMIN')"><a th:href='@{/usuarios/cadastrar}'>Cadastrar Usuários</a> </li>
                     </ul>
                     <div class="navbar-item" sec:authorize="isAuthenticated()" style="margin: 0px 0px 0px -15px; padding: 15px ">
