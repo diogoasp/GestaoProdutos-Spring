@@ -90,15 +90,15 @@ public class ProdutoController {
         return "redirect:../produtos";
     }
     
-    @PostMapping(path = "/pesquisar/{valor}", params = "atributo")
-    public String findByName(@PathVariable("valor") String valor, Model model) {
-        repo.findByNomeContainingIgnoreCase(valor);
+    @PostMapping(path = "/pesquisar", params = "nome")
+    public String findByName(@RequestParam("valor") String valor, Model model) {    
+        model.addAttribute("lista", repo.findByNomeContainingIgnoreCase(valor));
         return "listar";
     }
     
-    @PostMapping("/pesquisar")
-    public String findByCategoria(@RequestParam("categoria") String busca, @RequestParam("valor") String valor, Model model) {
-        repo.findByNomeContainingIgnoreCase(busca);
+    @PostMapping(path = "/pesquisar", params = "categoria")
+    public String findByCategoria(@RequestParam("valor") String valor, Model model) {    
+        model.addAttribute("lista", repo.findByCategoriaContainingIgnoreCase(valor));
         return "listar";
     }
     
