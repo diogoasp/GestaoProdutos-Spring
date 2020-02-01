@@ -80,7 +80,7 @@ public class ProdutoController {
         }
         try {
             String name = Calendar.getInstance().getTimeInMillis() + file.getOriginalFilename();
-            file.transferTo(Paths.get("/home/ryzen/Imagens/" + name));
+            file.transferTo(Paths.get("src/main/resources/img/" + name));
             produto.setFoto("/files/jpg/" + name);
             repo.save(produto);
         } catch (Exception ex) {
@@ -89,5 +89,18 @@ public class ProdutoController {
         
         return "redirect:../produtos";
     }
+    
+    @PostMapping(path = "/pesquisar/{valor}", params = "atributo")
+    public String findByName(@PathVariable("valor") String valor, Model model) {
+        repo.findByNomeContainingIgnoreCase(valor);
+        return "listar";
+    }
+    
+    @PostMapping("/pesquisar")
+    public String findByCategoria(@RequestParam("categoria") String busca, @RequestParam("valor") String valor, Model model) {
+        repo.findByNomeContainingIgnoreCase(busca);
+        return "listar";
+    }
+    
     
 }

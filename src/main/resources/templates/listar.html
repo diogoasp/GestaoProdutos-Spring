@@ -19,6 +19,16 @@
                     <h1 class="panel-title">Lista de Produtos</h1>
                 </div>
                 <div class="panel-body">
+                    <div>
+                        <form class="form-inline" th:action="@{/produtos/pesquisar/{valor}(path=${String})}" method="post" style="margin:20px 0">
+                            <label for="busca">Filtar por:</label>
+                            <select name="atributo">
+                                <option value="nome">Nome</option>
+                            </select>
+                            <input class="form-control" type="text" name="valor">
+                            <input class="btn btn-primary" type="submit" value="Pesquisar"/>
+                        </form>
+                    </div>
                     <table class="table">
                         <thead>
                             <tr>
@@ -37,11 +47,11 @@
                                 <td th:text="${prod.nome}"></td>
                                 <td th:text="${prod.preco}"></td>
                                 <td th:text="${prod.unidadeMedida}"></td>
-                                <td th:text="${prod.dtValidade}"></td>
+                                <td th:text="${prod.dataString}"></td>
                                 <td th:text="${prod.categoria}"></td>
                                 <td><img th:src="${prod.foto}" height="100" width="100"/></td>
-                                <td> <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/produtos/alterar/} + ${produto.id}" class="glyphicon glyphicon-pencil"></a> </td>
-                                <td> <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/produtos/excluir/} + ${produto.id}" class="glyphicon glyphicon-trash"> </a> </td>
+                                <td> <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/produtos/alterar/} + ${prod.id}" class="glyphicon glyphicon-pencil"></a> </td>
+                                <td> <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/produtos/excluir/} + ${prod.id}" class="glyphicon glyphicon-trash"> </a> </td>
                             </tr>
                         </tbody>
                     </table>
