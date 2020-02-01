@@ -1,0 +1,21 @@
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorator="PainelDeControle">
+    <head>
+        <title>Erro</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+        <script src="/webjars/jquery/jquery.min.js"></script>
+        <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <section layout:fragment="conteudo">
+            <h1>Erro Geral</h1>
+            <p>Desculpe, houve um erro inesperado...</p>
+            <a class="glyphicon glyphicon-arrow-left" href="/">Home</a>
+        </section>
+    </body>
+</html>
