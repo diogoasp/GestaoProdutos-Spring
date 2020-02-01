@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" 
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+      layout:decorator="MenuSuperior">
+    <head>
+        <title>Listar Produtos</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/webjars/font-awesome/css/font-awesome.min.css"></link>
+        <script src="/webjars/jquery/jquery.min.js"></script>
+        <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <section layout:fragment="conteudo">
+            <div class="panel panel-default" style="margin: 10px">
+                <div sec:authorize="isAuthenticated()">
+                    Bem-vindo(a), <span sec:authentication="name"> !</span>
+                    <a th:href="@{/logout}">Sair</a>
+                </div>
+                <div class="panel-heading">
+                    <h1 class="panel-title">Lista de Produtos</h1>
+                </div>
+                <div class="panel-body">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Nome</th>
+                                <th>Preço</th>
+                                <th>Unidade</th>
+                                <th>Data de Validade</th>
+                                <th>Categoria</th>
+                                <th>Foto</th>
+                                <th sec:authorize="hasRole('ROLE_ADMIN')" colspan="2">Ações</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr th:each="prod : ${lista}">
+                                <td hidden="true" th:text="${prod.id}"></td>
+                                <td th:text="${prod.nome}"></td>
+                                <td th:text="${prod.preco}"></td>
+                                <td th:text="${prod.unidade}"></td>
+                                <td th:text="${prod.dtValidade}"></td>
+                                <td th:text="${prod.categoria}"></td>
+                                <td><img th:src="${prod.foto}" height="100" width="100"/></td>
+                                <td> <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/produtos/alterar/} + ${produto.id}" class="glyphicon glyphicon-pencil"></a> </td>
+                                <td> <a sec:authorize="hasRole('ROLE_ADMIN')" th:href="@{/produtos/excluir/} + ${produto.id}" class="glyphicon glyphicon-trash"> </a> </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

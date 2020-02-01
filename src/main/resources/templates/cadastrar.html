@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" 
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorator="MenuSuperior">
+    <head>
+        <title>Cadastrar Produtos</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+        <link rel="stylesheet" href="/webjars/font-awesome/css/font-awesome.min.css"></link>
+        <script src="/webjars/jquery/jquery.min.js"></script>
+        <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    </head>
+    <body>
+        <section layout:fragment="conteudo">
+            <div class="panel panel-default" style="margin: 10px">
+                <div class="panel-heading">
+                    <h1 class="panel-title">Cadastro de Produtos</h1>
+                </div>
+                <div class="panel-body">
+                    <form class="form-inline" th:action="@{/produtos/cadastrar}" th:object="${produto}" method="post" enctype="multipart/form-data" style="margin:20px 0">
+                        <div class="form-group">
+                            <ul th:if="${#fields.hasErrors('*')}">
+                                <li th:each="err: ${#fields.errors('*')}" th:text="${err}"></li>
+                            </ul>
+                            <br>
+                            <input type="hidden" th:field="*{id}"/>
+                            <label for="#ids.next('nome')" th:text="'Nome :'"/>
+                            <input class="form-control" type="text" th:field="*{nome}"/>
+                            <br>
+                            <label for="#ids.next('preco')" th:text="'Preço :'"/>
+                            <input class="form-control" type="text" th:field="*{preco}"/>
+                            <label for="#ids.next('unidade')" th:text="'Unidade :'"/>
+                            <input class="form-control" type="text" th:field="*{unidade}"/>
+                            <br>
+                            <label for="#ids.next('dtValidade')" th:text="'Data de Validate:'"/>
+                            <input class="form-control" type="date" th:field="*{dtValidade}"/>
+                            <label for="#ids.next('categoria')" th:text="categoria"/>
+                            <input class="form-control" type="text" th:field="*{categoria}"/>
+                            <br>
+                            <label for="file">Foto: </label>
+                            <input type="file" id="file" name="file" class="form-control"/>
+                            <br/>
+                            <input class="btn btn-primary" type="submit" value="salvar"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>
