@@ -1,22 +1,22 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-    xmlns:th="http://www.thymeleaf.org"
-    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
         <title>Menu Superior</title>
-	<link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-	<link rel="stylesheet" href="/webjars/font-awesome/css/font-awesome.min.css"></link>
+        <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
         <script src="/webjars/jquery/jquery.min.js"></script>
         <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>	
     </head>
     <body>
-	<nav class="navbar navbar-inverse">
+        <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle" data-toggle="collapse"
-                        data-target="#bs-example-navbar-collapse-1" aria-expanded="true">
+                            data-target="#bs-example-navbar-collapse-1" aria-expanded="true">
                         <span class="sr-only">Toggle navigation</span> 
                         <span class="icon-bar"></span> 
                         <span class="icon-bar"></span> 
@@ -25,15 +25,18 @@
                 </div>
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="#">Gestão de Clientes</a>
+                        <a class="navbar-brand" href="/">Gestão de Produtos</a>
                     </div>
-                    <ul class="nav navbar-nav">
-                        <li><a th:href='@{/clientes}'>Lista de clientes</a> </li>
-                        <li><a th:href='@{/clientes/cadastrar}'>Cadastrar</a> </li>
+                    <ul class="nav navbar-nav" style="width: 70%">
+                        <li><a th:href='@{/produtos}'>Lista de produtos</a> </li>
+                        <li sec:authorize="hasRole('ROLE_ADMIN')"><a th:href='@{/produtos/cadastrar}'>Cadastrar</a> </li>
                     </ul>
+                    <div class="navbar-item" sec:authorize="isAuthenticated()" style="margin: 0px 0px 0px -15px; padding: 15px ">
+                        <span class="navbar-link">Bem-vindo(a), <span sec:authentication="name"></span>!  <a th:href="@{/logout}">Sair</a></span>
+                    </div>
                 </div>
             </div>
-	</nav>
+        </nav>
         <section layout:fragment="conteudo"></section>
     </body>
 </html>

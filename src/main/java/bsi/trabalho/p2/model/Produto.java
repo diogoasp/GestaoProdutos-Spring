@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 import javax.validation.constraints.Future;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
@@ -28,11 +30,12 @@ public class Produto implements Serializable {
     @Column(nullable = false)
     private double preco;
     
-    private String unidade;
+    private String unidadeMedida;
     
     @NotNull(message = "Data de validade é obrigatória.")
     @Future(message = "Data de Validade deve ter um valor futuro.")
     @Column(nullable = false)
+    @Temporal(value = TemporalType.DATE)
     private Calendar dtValidade;
     
     private String categoria;
@@ -64,11 +67,11 @@ public class Produto implements Serializable {
     }
 
     public String getUnidade() {
-        return unidade;
+        return unidadeMedida;
     }
 
-    public void setUnidade(String unidade) {
-        this.unidade = unidade;
+    public void setUnidade(String unidadeMedida) {
+        this.unidadeMedida = unidadeMedida;
     }
 
     public Calendar getDtValidade() {

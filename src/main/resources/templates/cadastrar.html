@@ -8,7 +8,6 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
         <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-        <link rel="stylesheet" href="/webjars/font-awesome/css/font-awesome.min.css"></link>
         <script src="/webjars/jquery/jquery.min.js"></script>
         <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
     </head>
@@ -31,8 +30,8 @@
                             <br>
                             <label for="#ids.next('preco')" th:text="'Preço :'"/>
                             <input class="form-control" type="text" th:field="*{preco}"/>
-                            <label for="#ids.next('unidade')" th:text="'Unidade :'"/>
-                            <input class="form-control" type="text" th:field="*{unidade}"/>
+                            <label for="#ids.next('unidadeMedida')" th:text="'Unidade :'"/>
+                            <input class="form-control" type="text" th:field="*{unidadeMedida}"/>
                             <br>
                             <label for="#ids.next('dtValidade')" th:text="'Data de Validate:'"/>
                             <input class="form-control" type="date" th:field="*{dtValidade}"/>

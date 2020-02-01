@@ -9,17 +9,12 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
         <link href="/webjars/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
-        <link rel="stylesheet" href="/webjars/font-awesome/css/font-awesome.min.css"></link>
         <script src="/webjars/jquery/jquery.min.js"></script>
         <script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
     </head>
     <body>
         <section layout:fragment="conteudo">
-            <div class="panel panel-default" style="margin: 10px">
-                <div sec:authorize="isAuthenticated()">
-                    Bem-vindo(a), <span sec:authentication="name"> !</span>
-                    <a th:href="@{/logout}">Sair</a>
-                </div>
+            <div class="panel panel-default" style="margin: 10px">             
                 <div class="panel-heading">
                     <h1 class="panel-title">Lista de Produtos</h1>
                 </div>
@@ -41,7 +36,7 @@
                                 <td hidden="true" th:text="${prod.id}"></td>
                                 <td th:text="${prod.nome}"></td>
                                 <td th:text="${prod.preco}"></td>
-                                <td th:text="${prod.unidade}"></td>
+                                <td th:text="${prod.unidadeMedida}"></td>
                                 <td th:text="${prod.dtValidade}"></td>
                                 <td th:text="${prod.categoria}"></td>
                                 <td><img th:src="${prod.foto}" height="100" width="100"/></td>
