@@ -17,6 +17,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter{
         http.authorizeRequests()
             .antMatchers("/produtos").hasAnyRole("ADMIN", "COMUM")
             .antMatchers("/produtos/**").hasRole("ADMIN")
+            .antMatchers("/files/jpg/logo.png").permitAll()
             .antMatchers("/files/**").hasAnyRole("ADMIN", "COMUM")
             .antMatchers("/usuarios/**").hasRole("ADMIN")
             .antMatchers("/usuarios").hasRole("ADMIN")

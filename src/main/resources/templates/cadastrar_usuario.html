@@ -13,12 +13,12 @@
     </head>
     <body>
         <section layout:fragment="conteudo">
-            <div class="panel panel-default" style="margin: 10px">
+            <div class="panel panel-default painel">
                 <div class="panel-heading">
                     <h1 class="panel-title">Cadastro de Usuários</h1>
                 </div>
                 <div class="panel-body">
-                    <form class="form-inline" th:action="@{/usuarios/cadastrar}" th:object="${usuario}" method="post" style="margin:20px 0">
+                    <form class="form-inline" th:action="@{/usuarios/cadastrar}" th:object="${usuario}" method="post">
                         <div class="form-group">
                             <ul th:if="${#fields.hasErrors('*')}">
                                 <li th:each="err: ${#fields.errors('*')}" th:text="${err}"></li>
@@ -35,7 +35,7 @@
                             <input class="form-control" type="checkbox" name="role" value="ADMIN"/> Administrador
                             <input class="form-control" type="hidden" name="role" value=""/>
                             <br/>
-                            <input class="btn btn-primary" type="submit" value="salvar"/>
+                            <input class="btn btn-primary" type="submit" value="SALVAR"/>
                         </div>
                     </form>
                 </div>

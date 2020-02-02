@@ -33,7 +33,7 @@ public class Produto implements Serializable {
     @Column(nullable = false)
     private double preco;
 
-    private String unidadeMedida;
+    private String unidadeMedida = "un";
 
     @NotNull(message = "Data de validade é obrigatória.")
     @Future(message = "Data de Validade deve ter um valor futuro.")
@@ -44,7 +44,7 @@ public class Produto implements Serializable {
     @Transient
     private String dataString;
 
-    private String categoria;
+    private String categoria = "Geral";
 
     private String foto;
 

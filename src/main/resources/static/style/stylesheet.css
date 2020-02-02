@@ -1,0 +1,61 @@
+:root {
+  --primary: #007bff;
+}
+
+#navPrincipal {
+    border-radius: 0px;
+}
+
+#logoPainel {
+    width: 70px; 
+    height: 35px; 
+    filter: invert(100%);
+}
+
+#ulNav {
+    width: 70%;
+}
+
+#loginInfo {
+    margin: 0px 0px 0px -15px; 
+    text-align: right;
+    padding: 15px 20px 0px 0px;
+}
+
+#avatarUsuario{
+    width: 30px; 
+    height: 30px; 
+    margin: 0px 10px 0px 0px;
+}
+
+#imgHome {
+    width: 40%; 
+    height: 30%;
+    display: block; 
+    align-items: center; 
+    justify-content: center; 
+    margin-left: auto; 
+    margin-right: auto; 
+    margin-bottom: 15px;
+}
+
+#mostrar {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+}
+
+.painel {
+    margin: 10px;
+}
+
+.form-control {
+    margin: 10px;
+}
+
+.erro {
+    color: red;
+}
+

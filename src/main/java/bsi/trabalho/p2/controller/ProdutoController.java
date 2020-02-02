@@ -72,8 +72,10 @@ public class ProdutoController {
         }
         
         if (file.isEmpty()) {
-            model.addAttribute("msgFile", "Arquivo não carregado");
-            return "cadastrar";
+            Produto prod = repo.findById(produto.getId()).get();
+            produto.setFoto(prod.getFoto());
+            repo.save(produto);
+            return "redirect:../produtos";
         } else if (!file.getContentType().equals(MediaType.IMAGE_JPEG_VALUE)) {
             model.addAttribute("msgFile", "Tipo de arquivo inválido");
             return "cadastrar";

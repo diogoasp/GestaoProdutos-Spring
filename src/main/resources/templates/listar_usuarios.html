@@ -14,17 +14,17 @@
     </head>
     <body>
         <section layout:fragment="conteudo">
-            <div class="panel panel-default" style="margin: 10px">             
+            <div class="panel panel-default painel">             
                 <div class="panel-heading">
                     <h1 class="panel-title">Lista de Usuários</h1>
                 </div>
                 <div class="panel-body">
                     <div>
-                        <form class="form-inline" th:action="@{/usuarios/pesquisar}" method="post" style="margin:20px 0">
-                            <label for="busca">Pesquisar: </label>
-                            <input class="form-control" type="text" name="valor">
+                        <form class="form-inline" th:action="@{/usuarios/pesquisar}" method="post" >
+                            <span class="glyphicon glyphicon-search"></span>
+                            <input class="form-control" type="text" name="valor"/>
                             <label for="busca">Por: </label>
-                            <input class="btn btn-primary" type="submit" name="login" value="Nome"/>
+                            <input class="btn btn-primary" type="submit" name="nome" value="NOME"/>
                         </form>
                     </div>
                     <table class="table">
