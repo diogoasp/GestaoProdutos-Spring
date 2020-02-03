@@ -30,7 +30,8 @@
                         <a class="navbar-brand" href="/"><img id="logoPainel" src="http://localhost:8080/files/jpg/logo.png" ></a>
                     </div>
                     <ul class="nav navbar-nav" id="ulNav">
-                        <li><a th:href='@{/produtos}'>Lista de Produtos</a> </li>
+                        <li><a sec:authorize="!isAuthenticated()" th:href='@{/login}'>Login</a> </li>
+                        <li><a sec:authorize="isAuthenticated()" th:href='@{/produtos}'>Lista de Produtos</a> </li>
                         <li sec:authorize="hasRole('ROLE_ADMIN')"><a th:href='@{/produtos/cadastrar}'>Cadastrar Produtos</a> </li>
                         <li sec:authorize="hasRole('ROLE_ADMIN')"><a th:href='@{/usuarios}'>Lista de Usuários</a> </li>
                         <li sec:authorize="hasRole('ROLE_ADMIN')"><a th:href='@{/usuarios/cadastrar}'>Cadastrar Usuários</a> </li>

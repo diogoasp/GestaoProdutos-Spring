@@ -16,6 +16,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter{
     public void configure(HttpSecurity http) throws Exception{
         http.authorizeRequests()
             .antMatchers("/produtos").hasAnyRole("ADMIN", "COMUM")
+            .antMatchers("/produtos/pesquisar").hasAnyRole("ADMIN", "COMUM")
             .antMatchers("/produtos/**").hasRole("ADMIN")
             .antMatchers("/files/jpg/logo.png").permitAll()
             .antMatchers("/files/**").hasAnyRole("ADMIN", "COMUM")
@@ -23,8 +24,10 @@ public class WebSecurity extends WebSecurityConfigurerAdapter{
             .antMatchers("/usuarios").hasRole("ADMIN")
             .antMatchers("/login").permitAll()
             .antMatchers("/logout").permitAll()
-                .antMatchers("/").permitAll()
-            .and().formLogin().defaultSuccessUrl("/");
+            .antMatchers("/").permitAll()
+            .and().formLogin().loginPage("/login").defaultSuccessUrl("/")
+            .and()
+            .logout().logoutSuccessUrl("/login");
     }
     
     @Override
