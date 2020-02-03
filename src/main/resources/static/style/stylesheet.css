@@ -1,9 +1,11 @@
-:root {
-  --primary: #007bff;
-}
-
 #navPrincipal {
     border-radius: 0px;
+    background-color: #0D0A0B;
+    color: #C9CEBD;
+}
+
+#navPrincipal a {
+    color: #C9CEBD;
 }
 
 #logoPainel {
@@ -49,13 +51,56 @@ ul {
 
 .painel {
     margin: 10px;
+    border-color: #838E83;
 }
 
 .form-control {
     margin: 10px;
+    color: #0D0A0B;
 }
 
 .erro {
     color: red;
 }
 
+.btn-secondary {
+    background-color: #C9CEBD;
+    color: #0D0A0B;
+}
+
+.body {
+    background-color: #838E83;
+    color: #0D0A0B;
+}
+
+input.btn.btn-primary {
+    background-color: #454955;
+    color: #C9CEBD;
+    border-color: #C9CEBD;
+}
+
+.glyphicon {
+    color: #454955;
+}
+
+div.panel-body {
+    border-radius: 2px;
+    background-color: #C9CEBD;
+
+}
+
+div.panel-heading.painelHeader {
+    border-radius: 2px; 
+    background-color: #C9CEBD;
+    color: #0D0A0B;
+    border-color: #838E83;
+}
+
+input.form-control {
+    background-color: #C9CEBD;
+    border-color: #838E83;
+}
+
+table.table {
+    border-color: #838E83;
+}
