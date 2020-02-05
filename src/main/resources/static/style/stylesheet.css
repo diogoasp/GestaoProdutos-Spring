@@ -109,3 +109,7 @@ input.form-control {
 table.table {
     border-color: #838E83;
 }
+
+a#aLogout.btn.btn-secondary {
+    color: #0D0A0B;
+}

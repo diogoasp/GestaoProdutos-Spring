@@ -17,15 +17,15 @@ public class HomeController {
         return mv;
     }
     
-    @GetMapping("/login")
-    public ModelAndView loginPage(){
-        ModelAndView mv = new ModelAndView("login.html");
-        return mv;
-    }
-    
-    @PostMapping("/logout")
-    public String logout(HttpSession session) {
-        session.invalidate();
-        return "redirect:../";
-    }
+//    @GetMapping("/login")
+//    public ModelAndView loginPage(){
+//        ModelAndView mv = new ModelAndView("login.html");
+//        return mv;
+//    }
+//    
+//    @PostMapping("/logout")
+//    public String logout(HttpSession session) {
+//        session.invalidate();
+//        return "redirect:../";
+//    }
 }

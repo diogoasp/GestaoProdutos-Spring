@@ -25,9 +25,9 @@ public class WebSecurity extends WebSecurityConfigurerAdapter{
             .antMatchers("/login").permitAll()
             .antMatchers("/logout").permitAll()
             .antMatchers("/").permitAll()
-            .and().formLogin().loginPage("/login").defaultSuccessUrl("/")
             .and()
-            .logout().logoutSuccessUrl("/login");
+            .formLogin().defaultSuccessUrl("/").permitAll()
+            ;
     }
     
     @Override
